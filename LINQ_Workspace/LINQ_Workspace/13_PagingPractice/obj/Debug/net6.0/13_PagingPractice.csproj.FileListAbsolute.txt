@@ -1,0 +1,15 @@
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\LINQ_Workspace\13_PagingPractice\bin\Debug\net6.0\13_PagingPractice.exe
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\LINQ_Workspace\13_PagingPractice\bin\Debug\net6.0\13_PagingPractice.deps.json
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\LINQ_Workspace\13_PagingPractice\bin\Debug\net6.0\13_PagingPractice.runtimeconfig.json
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\LINQ_Workspace\13_PagingPractice\bin\Debug\net6.0\13_PagingPractice.dll
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\LINQ_Workspace\13_PagingPractice\bin\Debug\net6.0\13_PagingPractice.pdb
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\LINQ_Workspace\13_PagingPractice\obj\Debug\net6.0\13_PagingPractice.csproj.AssemblyReference.cache
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\LINQ_Workspace\13_PagingPractice\obj\Debug\net6.0\13_PagingPractice.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\LINQ_Workspace\13_PagingPractice\obj\Debug\net6.0\13_PagingPractice.AssemblyInfoInputs.cache
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\LINQ_Workspace\13_PagingPractice\obj\Debug\net6.0\13_PagingPractice.AssemblyInfo.cs
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\LINQ_Workspace\13_PagingPractice\obj\Debug\net6.0\13_PagingPractice.csproj.CoreCompileInputs.cache
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\LINQ_Workspace\13_PagingPractice\obj\Debug\net6.0\13_PagingPractice.dll
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\LINQ_Workspace\13_PagingPractice\obj\Debug\net6.0\refint\13_PagingPractice.dll
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\LINQ_Workspace\13_PagingPractice\obj\Debug\net6.0\13_PagingPractice.pdb
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\LINQ_Workspace\13_PagingPractice\obj\Debug\net6.0\13_PagingPractice.genruntimeconfig.cache
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\LINQ_Workspace\13_PagingPractice\obj\Debug\net6.0\ref\13_PagingPractice.dll

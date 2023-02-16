@@ -1,0 +1,136 @@
+Paging Uygulaması
+
+- Paging: Bir veri kaynağında çok sayıda kayıt olduğunu ve bu kayıtları bir ekranda göstermemiz gerektiğini düşünelim,
+
+1- Tüm data'ları-verileri tek seferde gösterebiliriz, (donanımsal sıkıntılar, hafıza yönetimi, performans düşmesi, okunamaz içerik...)
+2- Paging: Ya da Pagination, veri kaynağı içeriklerini bölümlere veya sayfalara ayırma işlemidir. Sayfalama olarak dilimize çevrilmiştir.
+
+Başka bir deyişle, n sayıdaki kaydı birden fazla sayfaya bölme işlemine paging-sayfalama denir. Tek bir sayfada belirli sayıdaki kayıt gösterilir.
+Ve sıradaki kayıt kümesi bir sonraki sayfada gösterilir. Bu geçişler bir button ya da scrollbar yardımı ile yapılabilir.
+
+Faydaları:
+
+- Hızlı veri akışı,
+- Gelişmiş hafıza yönetimi,
+- Okunmada kolaylık,
+
+Eksisi:
+
+- Client-Server yapısında sunucuya gönderilen istek sayısını arttırır. Mesela her next ya da previous butonuna bastığımızda bir istek gönderilir.
+
+Nasıl Uygulanır?
+
+- LINQ kullanılarak uygulanabilir.
+- Skip ve Take operatörleri kullanılır.
+- Toplam sayımız : t olsun,
+  Sayfa başına düşen toplam kayıt miktarı : n 
+  
+  Formül : for index => skip(index * n) take (n)
+		   for pages => skio((pageNumber - 1) * n) take (n)
+
+Uygulama:
+
+namespace _13_PagingPractice
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            int totalPagePerView = 4; //bir sayfada gösterilecek toplam kayıt sayısı
+
+            do
+            {
+                Console.WriteLine("Sayfa numarasını giriniz: ");
+                if (int.TryParse(Console.ReadLine(), out int pageNumber))
+                {
+                    var ms = GetEmployees().Skip((pageNumber - 1) * totalPagePerView).Take(totalPagePerView);
+
+                    foreach (var item in ms)
+                    {
+                        Console.WriteLine($"Id = {item.Id} and Name = {item.Name}");
+                    }
+                    Console.WriteLine("");
+                }
+                else
+                {
+                    Console.WriteLine("Uygun bir sayfa numarası giriniz!.");
+                } 
+            } while (true);
+        }
+
+        public static List<Employee> GetEmployees()
+        {
+            return new List<Employee>()
+            {
+                new Employee() { Id = 1, Name = "Sakata Gintoki"},
+                new Employee() { Id = 2, Name = "Kotaro Katsura"},
+                new Employee() { Id = 3, Name = "Shinsuke Takasugi"},
+                new Employee() { Id = 4, Name = "Okita Sougo"},
+                new Employee() { Id = 5, Name = "Kagura"},
+                new Employee() { Id = 6, Name = "Shinpachi Shimura"},
+                new Employee() { Id = 7, Name = "Kamui"},
+                new Employee() { Id = 8, Name = "Tatsuma Sakamoto"},
+                new Employee() { Id = 9, Name = "Kondo Isao"},
+                new Employee() { Id = 10, Name = "Toshiro Hijikata"},
+                new Employee() { Id = 11, Name = "Shoyo Yoshida"},
+                new Employee() { Id = 12, Name = "Sarutobi Ayame"},
+                new Employee() { Id = 13, Name = "Tae Shimura"},
+                new Employee() { Id = 14, Name = "Sadaharu"},
+                new Employee() { Id = 15, Name = "Sakata Kintoki"},
+                new Employee() { Id = 16, Name = "Taizo Hasegawa"},
+                new Employee() { Id = 17, Name = "Nizou Okeda"},
+                new Employee() { Id = 18, Name = "Gengai Hiraga"},
+                new Employee() { Id = 19, Name = "Anisaki Momo"},
+                new Employee() { Id = 20, Name = "Terakado Ichi"}
+
+            };
+        }
+
+    }
+    class Employee
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+    }
+}
+
+Çıktı:
+Sayfa numarasını giriniz:
+1
+Id = 1 and Name = Sakata Gintoki
+Id = 2 and Name = Kotaro Katsura
+Id = 3 and Name = Shinsuke Takasugi
+Id = 4 and Name = Okita Sougo
+
+Sayfa numarasını giriniz:
+2
+Id = 5 and Name = Kagura
+Id = 6 and Name = Shinpachi Shimura
+Id = 7 and Name = Kamui
+Id = 8 and Name = Tatsuma Sakamoto
+
+Sayfa numarasını giriniz:
+3
+Id = 9 and Name = Kondo Isao
+Id = 10 and Name = Toshiro Hijikata
+Id = 11 and Name = Shoyo Yoshida
+Id = 12 and Name = Sarutobi Ayame
+
+Sayfa numarasını giriniz:
+4
+Id = 13 and Name = Tae Shimura
+Id = 14 and Name = Sadaharu
+Id = 15 and Name = Sakata Kintoki
+Id = 16 and Name = Taizo Hasegawa
+
+Sayfa numarasını giriniz:
+5
+Id = 17 and Name = Nizou Okeda
+Id = 18 and Name = Gengai Hiraga
+Id = 19 and Name = Anisaki Momo
+Id = 20 and Name = Terakado Ichi
+
+Sayfa numarasını giriniz:
+asd
+Uygun bir sayfa numarası giriniz!.
+Sayfa numarasını giriniz:

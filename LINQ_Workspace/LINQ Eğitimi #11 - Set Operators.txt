@@ -1,0 +1,630 @@
+Set Operators Nedir?
+
+- Aynı ya da farklı veri kaynaklarında bir takım elemanların olup olmamasına bağlı sonuç kümeleri oluşturmaya yarayan operatörlerdir.
+
+Örnek vermek gerekirse;
+
+- Tekrarlı kayıtları, distinct-ayrışık olarak getirmek istersek,
+- Bir okuldaki 1-A sınıfı hariç tüm öğrenciler,
+- Bir okuldaki tüm sınıfların en iyi öğrencileri seçmek istersek...
+
+Set Operasyonlarında Kullanılan Metotlar
+
+- Distinct: Tekrar eden - eşli kayıtları kaldırmakta kullanılır.
+- Except: Bir veri kaynağında var olup diğer bir ikincisinde olmayan elemanları döndürür.
+- Intersect: İki veri kaynağının ikisinde de olan tüm elemanları döndürür.
+- Union: Her iki veri kaynağından herhangi birinde olan tüm elemanları döndürür.
+
+Distinct operatörü ile başlayalım.
+
+- Bir veri kaynağından bariz-ayrışmış sonuçlar dönmeye yarar. Sonuçlardaki ikiliği kaldırmakta kullanılır.
+- 2 tane overload metodu vardır.
+- Karşılaştırma için de kullanılabilir.
+
+Örnek:
+
+namespace _11_SetOperators
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            List<int> numbers = new List<int>() { 1,2,3,3,4,5,5,5,5,5,6,7,8,9,9,10};
+
+            //Method Syntax
+            //var ms = numbers.Distinct();
+            //şu anda bu sorgu execute edilmemiştir. IEnumerable döndürmektedir. Execute etmek için;
+
+            var ms = numbers.Distinct().ToList();
+            //debug modunda çalıştırıp ms'in içine baktığımızda 1,2,3,4,5,6,7,8,9,10'u tekli sonuçlar olarak görürüz.
+
+            //Query Syntax
+            var qs = (from num in numbers 
+                      select num).Distinct().ToList(); //Aynı şekilde execute etmek için Tolist()
+            //debug modunda çalıştırıp qs'in içine baktığımızda da 1,2,3,4,5,6,7,8,9,10'u tekli sonuçlar olarak görürüz.
+
+            Console.WriteLine();
+
+        }
+    }
+}
+
+Sıradaki örnek için bir sınıf oluşturalım.
+
+class Student
+{
+    public int Id { get; set; }
+    public string Name { get; set; }
+}
+
+Örnek:
+
+namespace _11_SetOperators
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+
+            List<Student> students = new List<Student>()
+            {
+                new Student() {Id = 1, Name = "John"},
+                new Student() {Id = 2, Name = "Mike"},
+                new Student() {Id = 1, Name = "John"},
+                new Student() {Id = 4, Name = "Danny"},
+            };
+
+            //Method Syntax
+            //Distinct Name'leri elde etmek için,
+            var ms = students.Select(x => x.Name).Distinct().ToList();
+            //John ve Mike'dan oluşan 2 kişilik bir liste gelir.
+            Console.WriteLine();
+        }
+    }
+}
+
+Sorunu çözmek için Student sınıfında değişiklik yapalım.
+IEqualityComparer iki ayrı objeyi kıyaslarken kullanılır.
+Fakat IEquatable arayüzü miras alındığı sınıfa Equals metodunu ile nesne-referans karşılaştırması yaptırır.
+
+Yani IEqualityComparer<T> T türünden iki farklı nesnenin-objenin kıyaslamasının yapılmasını sğalayan bir arayüzdür.
+IEquatable<T> ise kendisiyle aynı T türünden bir nesne ile kendisinin kıyaslanmasında işe yarar.
+
+class Student : IEquatable<Student>
+{
+    public int Id { get; set; }
+    public string Name { get; set; }
+
+    public bool Equals(Student? other)
+    {
+        if(object.ReferenceEquals(other, null)) //iki referans farklıysa
+            return false;
+        if(object.ReferenceEquals(this, other)) //iki referans'da aynıysa
+            return true;
+
+        return Id.Equals(other.Id) && Name.Equals(other.Name);
+    }
+
+    public override int GetHashCode()
+    {
+        int idHashCode = Id.GetHashCode();
+        int nameHashCode = Name.GetHashCode();
+
+        return idHashCode^ nameHashCode;
+    }
+}
+
+Örnek:
+
+namespace _11_SetOperators
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+
+            List<Student> students = new List<Student>()
+            {
+                new Student() {Id = 1, Name = "John"},
+                new Student() {Id = 2, Name = "Mike"},
+                new Student() {Id = 1, Name = "John"},
+                new Student() {Id = 4, Name = "Marki"},
+            };
+
+            //Method Syntax
+            //Sonuçları ayrışmış olarak bekleriz ama yine de 4 tane kayıt döndürür.
+            //var ms = students.Distinct().ToList();
+            //Birkaç ders önce gördüğümüz üzere bu tip bazı metotlar değer üzerinde değil de referans üzerinde çalışırlar.
+            //Burada değerler ile çalışma yapabilmek için birkaç kurcalama yapmamız lazım.
+
+            //Değişikliklerden sonra tekrar çalıştıralım,
+            var ms = students.Distinct().ToList();
+            Console.WriteLine();
+
+        }
+    }
+}
+
+IEqualityCompararer ile çözmek için tekrardan sınıflarda oynamalar yapalım.
+
+class Student 
+{
+    public int Id { get; set; }
+    public string Name { get; set; }
+
+}
+
+class StudentComparer : IEqualityComparer<Student>
+{
+    public bool Equals(Student? x, Student? y)
+    {
+        return x.Id.Equals(y.Id) && x.Name.Equals(y.Name);
+    }
+
+    public int GetHashCode(Student obj)
+    {
+        int idHashCode = obj.Id.GetHashCode();
+        int nameHashCode = obj.Name.GetHashCode();
+
+        return idHashCode ^ nameHashCode;
+    }
+}
+
+Örnek:
+
+namespace _11_SetOperators
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+
+            List<Student> students = new List<Student>()
+            {
+                new Student() {Id = 1, Name = "John"},
+                new Student() {Id = 2, Name = "Mike"},
+                new Student() {Id = 1, Name = "John"},
+                new Student() {Id = 4, Name = "Marki"},
+            };
+
+            //Değişikliklerden sonra tekrar çalıştıralım,
+            var ms = students.Distinct(new StudentComparer()).ToList();
+            Console.WriteLine();
+
+        }
+    }
+}
+
+----
+
+Except Operatörü
+
+- Bir veri kaynağında olup diğerinde olmayan elemanları döndürmekte kullanılır.
+- 2 tane overload'u vardır.
+- Karşılaştırtıcı olarak da kullanılabilir.
+- Her tür veri türü ile çalışır.
+
+Örnek vermek gerekirse;
+
+- kaynak1 = A, B, C, D
+  kaynak2 = C, D, E, F
+  kaynak1 except kaynak2 = A, B
+  
+Örnek:
+  
+namespace _11_SetOperators
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+
+            List<string> datasource1 = new List<string>() { "A", "B", "C", "D" };
+            List<string> datasource2 = new List<string>() { "C", "D", "E", "F" };
+
+            //Method Syntax
+            var ms = datasource1.Except(datasource2).ToList();
+            //A ve B
+            Console.WriteLine();
+
+        }
+    }
+}
+
+Daha karmaşık örnekler için Student sınıfı açalım,
+
+class Student 
+{
+    public int Id { get; set; }
+    public string Name { get; set; }
+
+}
+
+Örnek:
+
+namespace _11_SetOperators
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+
+            List<Student> students = new List<Student>()
+            {
+                new Student() {Id = 1, Name = "Serkan"},
+                new Student() {Id = 2, Name = "Çağhan"},
+                new Student() {Id = 3, Name = "Eylül"},
+                new Student() {Id = 4, Name = "Murat"}
+            };
+
+            List<Student> students1 = new List<Student>()
+            {
+                new Student() {Id = 1, Name = "Serkan"},
+                new Student() {Id = 2, Name = "Çağhan"},
+                new Student() {Id = 5, Name = "Mart"},
+                new Student() {Id = 6, Name = "Muro"}
+            };
+
+            var ms = students.Select(x => x.Name).Except(students1.Select(x => x.Name)).ToList();
+            //Eylül ile Murat döner.
+
+            var ms1 = students.Except(students1).ToList();
+            //4 kaydı da elde ettik. Ama etmememiz gerekiyordu?
+            Console.WriteLine();
+        }
+    }
+}
+
+Yine geldik referans ile kontrol kısmına.
+
+Önce Anonim Tip yönetemini görelim.
+
+namespace _11_SetOperators
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+
+            List<Student> students = new List<Student>()
+            {
+                new Student() {Id = 1, Name = "Serkan"},
+                new Student() {Id = 2, Name = "Çağhan"},
+                new Student() {Id = 3, Name = "Eylül"},
+                new Student() {Id = 4, Name = "Murat"}
+            };
+
+            List<Student> students1 = new List<Student>()
+            {
+                new Student() {Id = 1, Name = "Serkan"},
+                new Student() {Id = 2, Name = "Çağhan"},
+                new Student() {Id = 5, Name = "Mart"},
+                new Student() {Id = 6, Name = "Muro"}
+            };
+
+            var ms = students.Select(x => x.Name).Except(students1.Select(x => x.Name)).ToList();
+            //Eylül ile Murat döner.
+
+            var ms1 = students.Except(students1).ToList();
+            //4 kaydı da elde ettik. Ama etmememiz gerekiyordu?
+
+            //Anonim Tip yardımıyla tüm property'leri seçerek çözebiliriz.
+            var ms2 = students.Select(x => new {x.Id, x.Name}).Except(students1.Select(x => new {x.Id, x.Name})).ToList();
+            //Eylül ile Murat
+
+            Console.WriteLine();
+        }
+    }
+}
+
+IEqualityCompararer yolunu ise yukarıda Distinct konusunda gördük. Aynı şekilde sınıflarda gerekli düzenlemelerle birlikte;
+
+class Student
+{
+    public int Id { get; set; }
+    public string Name { get; set; }
+
+}
+
+class StudentComparer : IEqualityComparer<Student>
+{
+    public bool Equals(Student? x, Student? y)
+    {
+        return x.Id.Equals(y.Id) && x.Name.Equals(y.Name);
+    }
+
+    public int GetHashCode(Student obj)
+    {
+        int idHashCode = obj.Id.GetHashCode();
+        int nameHashCode = obj.Name.GetHashCode();
+
+        return idHashCode ^ nameHashCode;
+    }
+}
+
+namespace _11_SetOperators
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+
+            List<Student> students = new List<Student>()
+            {
+                new Student() {Id = 1, Name = "Serkan"},
+                new Student() {Id = 2, Name = "Çağhan"},
+                new Student() {Id = 3, Name = "Eylül"},
+                new Student() {Id = 4, Name = "Murat"}
+            };
+
+            List<Student> students1 = new List<Student>()
+            {
+                new Student() {Id = 1, Name = "Serkan"},
+                new Student() {Id = 2, Name = "Çağhan"},
+                new Student() {Id = 5, Name = "Mart"},
+                new Student() {Id = 6, Name = "Muro"}
+            };
+
+            var ms = students.Except(students1, new StudentComparer()).ToList();
+            //Eylül ile Murat
+            Console.WriteLine();
+        }
+    }
+}
+
+Bu tip metotlarda Query Syntax'i tek başına kullanmak mümkün değildir.
+O yüzden Mixed Syntax olarak kullanabiliriz.
+
+//Query - Mixed
+var qs = (from std in students
+            select std).Except(students1, new StudentComparer()).ToList();
+//Eylül ile Murat
+
+-----
+
+Intersect Operatörü
+
+- İki farklı veri kaynağındaki ortak elemanları bulmakta kullanılır.
+- 2 tane overload'u vardır.
+- Karşılaştırtıcı olarak kullanabilir.
+
+Örnek olarak,
+
+- A kesişim B kümesi.
+- kaynak1 = A, B, C, D
+  kaynak2 = C, D, E, F
+  A intersect B = C, D
+  
+Örnek:
+
+namespace _11_SetOperators
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+
+            List<string> datasource1 = new List<string>() { "A", "B", "C", "D" };
+            List<string> datasource2 = new List<string>() { "C", "D", "E", "F" };
+
+            //Method Syntax
+            var ms = datasource1.Intersect(datasource2).ToList();
+            //C ve D
+
+            //Query Syntax - Mixed
+            var qs = (from ch in datasource1
+                      select ch).Intersect(datasource2).ToList();
+            Console.WriteLine();
+
+        }
+    }
+}
+
+Sıradaki örnek için Student class'ı;
+
+class Student
+{
+    public int Id { get; set; }
+    public string Name { get; set; }
+}
+
+Örnek:
+
+namespace _11_SetOperators
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+
+            List<Student> students1 = new List<Student>()
+            {
+                new Student() {Id = 1, Name = "Serkan"},
+                new Student() {Id = 2, Name = "Çağhan"},
+                new Student() {Id = 3, Name = "Eylül"},
+                new Student() {Id = 4, Name = "Murat"}
+            };
+
+            List<Student> students2 = new List<Student>()
+            {
+                new Student() {Id = 1, Name = "Serkan"},
+                new Student() {Id = 2, Name = "Çağhan"},
+                new Student() {Id = 5, Name = "Mart"},
+                new Student() {Id = 6, Name = "Muro"}
+            };
+
+            //Anonim Tip Yöntemi
+            var ms = students1.Select(x => new {x.Id, x.Name}).Intersect(students2.Select(x => new { x.Id, x.Name})).ToList();
+            //Serkan ve Çağhan
+
+            Console.WriteLine();
+
+        }
+    }
+}
+
+Ya da Distinct ve Except'te gördüğümüz gibi IEqualityComparer yöntemini kullanabiliriz.
+
+Tüm kod satırı aşağıdadır.
+
+Örnek:
+
+namespace _11_SetOperators
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+
+            List<Student> students1 = new List<Student>()
+            {
+                new Student() {Id = 1, Name = "Serkan"},
+                new Student() {Id = 2, Name = "Çağhan"},
+                new Student() {Id = 3, Name = "Eylül"},
+                new Student() {Id = 4, Name = "Murat"}
+            };
+
+            List<Student> students2 = new List<Student>()
+            {
+                new Student() {Id = 1, Name = "Serkan"},
+                new Student() {Id = 2, Name = "Çağhan"},
+                new Student() {Id = 5, Name = "Mart"},
+                new Student() {Id = 6, Name = "Muro"}
+            };
+
+            //Comparer Yöntemi
+            var ms = students1.Intersect(students2, new StudentComparer()).ToList();
+            //Serkan ve Çağhan
+
+            Console.WriteLine();
+
+        }
+    }
+}
+class Student
+{
+    public int Id { get; set; }
+    public string Name { get; set; }
+}
+class StudentComparer : IEqualityComparer<Student>
+{
+    public bool Equals(Student? x, Student? y)
+    {
+        return x.Id.Equals(y.Id) && x.Name.Equals(y.Name);
+    }
+
+    public int GetHashCode(Student obj)
+    {
+        int idHashCode = obj.Id.GetHashCode();
+        int nameHashCode = obj.Name.GetHashCode();
+
+        return idHashCode ^ nameHashCode;
+    }
+}
+
+---
+
+Union Operatörü
+
+- Birden fazla veri kaynağını birleştirmekte kullanılır.
+- Tekrar eden tüm kayıtları tekil olarak alır.
+- 2 tane overload'u vardır. Yukarıda olduğu gibi object'ler ile çalışıyorsak iki parametreli olanı, diğer türler için ise tek parametreli olanı kullanabiliriz.
+- Karşılaştırmada da kullanılır.
+
+Örnek olarak,
+
+- A birleşim B kümesi,
+- kaynak1 = A, B, C, D
+  kaynak2 = C, D, E, F
+  A union B = A, B, C, D, E, F
+  
+Örnek:
+
+namespace _11_SetOperators
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+
+            List<string> datasource1 = new List<string>() { "A", "A", "C", "D" };
+            List<string> datasource2 = new List<string>() { "C", "D", "E", "F" };
+
+            //Method Syntax
+            var ms = datasource1.Union(datasource2).ToList();
+            //"A", "C", "D", "E", "F" 
+
+            //Query Syntax - Mixed
+            var qs = (from ch in datasource1
+                      select ch).Union(datasource2).ToList();
+            Console.WriteLine();
+
+        }
+    }
+}
+
+İleriki örnekler için Student ve StudentComparer sınıfları açalım;
+
+
+namespace _11_SetOperators
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+
+            List<Student> students1 = new List<Student>()
+            {
+                new Student() {Id = 1, Name = "Serkan"},
+                new Student() {Id = 2, Name = "Çağhan"},
+                new Student() {Id = 3, Name = "Eylül"},
+                new Student() {Id = 4, Name = "Murat"}
+            };
+
+            List<Student> students2 = new List<Student>()
+            {
+                new Student() {Id = 1, Name = "Serkan"},
+                new Student() {Id = 2, Name = "Çağhan"},
+                new Student() {Id = 5, Name = "Mart"},
+                new Student() {Id = 6, Name = "Muro"}
+            };
+
+            //Method Syntax
+
+            //Yanlış yazım;
+            //var ms = students1.Union(students2).ToList();
+
+            //Doğru yazım;
+            var ms = students1.Union(students2, new StudentComparer()).ToList();
+            //Yine Comparer Yöntemi ile çözdük. Tekrar eden kayıtlar harici 6 adet kayıt elde ettik.
+
+            //Anonim Tip Yöntemi
+            var msA = students1.Select(x => new { x.Id, x.Name }).Union(students2.Select(x => new {x.Id, x.Name})).ToList();
+
+            Console.WriteLine();
+        }
+    }
+}
+
+class Student
+{
+    public int Id { get; set; }
+    public string Name { get; set; }
+}
+
+class StudentComparer : IEqualityComparer<Student>
+{
+    public bool Equals(Student? x, Student? y)
+    {
+        return x.Id.Equals(y.Id) && x.Name.Equals(y.Name);
+    }
+
+    public int GetHashCode(Student obj)
+    {
+        int idHashCode = obj.Id.GetHashCode();
+        int nameHashCode = obj.Name.GetHashCode();
+
+        return idHashCode ^ nameHashCode;
+    }
+}
+

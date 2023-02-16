@@ -1,0 +1,124 @@
+ThenBy Nedir?
+
+- İkinci bir sıralama uygularken verleri artan sırada sıralamaya yarar.
+- OrderBy ile sıraladığımız bir veriyi ThenBy ile başka bir şekilde sıralamak istediğimizi düşünelim.
+- Tek başlarına kullanılamazlar. OrderBy ya da OrderByDescending ile birlikte kullanılmalıdırlar.
+
+Örnek olarak bir isim-soyisim listesini önce isme sonra da isme göre sıralanmış verileri de soyisime göre sıralamak gösterilebilir.
+
+Kullanılacak örnekler için Employee.cs;
+
+namespace _07_SortingOperators_OrderByDescending
+{
+    public class Employee
+    {
+        public int Id { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public string Email { get; set; }
+
+    }
+}
+
+Örnek:
+
+Sadece OrderBy kullanıldığı zaman şu şekilde bir çıktı veren bir data source'umuz olduğunu düşünelim,
+
+2, First Name = Alex, Last Name = Pele, E-mail = pele@gmail.com
+1, First Name = Alex, Last Name = De Souza, E-mail = alex@gmail.com
+3, First Name = Diego Armando, Last Name = Maradona, E-mail = maradona@gmail.com
+4, First Name = Diego Armando, Last Name = Hagi, E-mail = hagi@gmail.com
+
+görüldüğü gibi FirstName'ler kendi aralarında alfabeye göre sıralanmış. Eğer ki LastName'in de ascending olarak kendi arasında hizalansın istersek;
+
+namespace _08_SortingOperators_ThenByAndDesc
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            var dataSource = new List<Employee>()
+            {
+                new Employee()
+                {
+                    Id = 3,
+                    Email = "maradona@gmail.com",
+                    LastName = "Maradona",
+                    FirstName = "Diego Armando"
+                },
+                new Employee()
+                {
+                    Id = 2,
+                    Email = "pele@gmail.com",
+                    LastName = "Pele",
+                    FirstName = "Alex"
+                },
+                new Employee()
+                {
+                    Id = 1,
+                    Email = "alex@gmail.com",
+                    LastName = "De Souza",
+                    FirstName = "Alex"
+                },
+                new Employee()
+                {
+                    Id = 4,
+                    Email = "hagi@gmail.com",
+                    LastName = "Hagi",
+                    FirstName = "Diego Armando"
+                }
+            };
+
+            //Method Syntax
+
+            //var ms = dataSource.OrderBy(e => e.FirstName).ToList();
+            //OrderBy ile artan sırada isimleri, ThenBy ile sıralanmış isimlerin soyisimlerini artan sırada sıralarız.
+			
+            var ms = dataSource.OrderBy(e => e.FirstName).ThenBy(e => e.LastName).ToList();
+
+            foreach (var item in ms)
+            {
+                Console.WriteLine($"{item.Id}, First Name = {item.FirstName}, Last Name = {item.LastName}, E-mail = {item.Email}");
+            }
+			
+			Console.WriteLine("---");
+
+			//Query Syntax
+            //ThenBy bu kullanımda bulunmamakta. Fakat aşağıdaki gibi bir yol bulunabilir.
+            //ascending yazmaya gerek yok, default olarak ascending'dir. Fakat azalan sırada olmasını istediğimiz yerde descending yazmalıyız.
+			
+            var qs = from e in dataSource
+                     orderby e.FirstName ascending, e.LastName descending
+                     select e;
+
+            foreach (var item in qs)
+            {
+                Console.WriteLine($"{item.Id}, First Name = {item.FirstName}, Last Name = {item.LastName}, E-mail = {item.Email}");
+            }
+        }
+    }
+}
+
+Çıktı:
+1, First Name = Alex, Last Name = De Souza, E-mail = alex@gmail.com
+2, First Name = Alex, Last Name = Pele, E-mail = pele@gmail.com
+4, First Name = Diego Armando, Last Name = Hagi, E-mail = hagi@gmail.com
+3, First Name = Diego Armando, Last Name = Maradona, E-mail = maradona@gmail.com
+---
+2, First Name = Alex, Last Name = Pele, E-mail = pele@gmail.com
+1, First Name = Alex, Last Name = De Souza, E-mail = alex@gmail.com
+3, First Name = Diego Armando, Last Name = Maradona, E-mail = maradona@gmail.com
+4, First Name = Diego Armando, Last Name = Hagi, E-mail = hagi@gmail.com
+
+Daha sonra bu sorguya istediğimiz kadar ThenBy ekleyebiliriz. Bu örnekte pek karşılığı yok ama,
+var ms = dataSource.OrderBy(e => e.FirstName).ThenBy(e => e.LastName).ThenBy(e => e.Id).ToList(); //yazılabilir.
+ya da
+var qs = from e in dataSource
+         orderby e.FirstName ascending, e.LastName descending, e.Id
+         select e;
+
+ThenByDescending'de ise tek fark azalan sırada gelmesini istediğimiz kolonu-veriyi;
+
+var ms = dataSource.OrderBy(e => e.FirstName).ThenByDescending(e => e.LastName).ToList();
+şeklinde yazmak yeterli.
+

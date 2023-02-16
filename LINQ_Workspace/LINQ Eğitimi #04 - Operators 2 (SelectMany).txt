@@ -1,0 +1,285 @@
+SelectMany Nedir?
+
+SelectMany bir sequence'in(sıralınım-dizilim) elemanlarını tekdüzeleştirip tek bir sequence'a indirgemeye yarar.
+IEnumerable<T> return eder.
+
+Bir başka diyişle bir sequence sonucunda gelen record(kayıt)'ları tek bir sonuca dönüştürmeye yarar.
+
+Projection Operator kategorisinde bulunur.
+
+namespace LinqSample1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            List<string> strList = new List<string> { "Cagatay", "Demirtas" };
+
+            var methodResult = strList.SelectMany(x => x).ToList();
+            //bütün string'leri tek bir char listesine convert edecektir.
+
+            foreach ( var item in methodResult )
+            {
+                Console.WriteLine(item);
+            }
+
+            Console.WriteLine();
+        }
+    }
+}
+
+Çıktı:
+C
+a
+g
+a
+t
+a
+y
+D
+e
+m
+i
+r
+t
+a
+s
+
+Cagatay ve Demirtas adında iki tane report(rapor) ya da record(kayıt) geldiğini düşünelim. Bunların hepsini tek bir sequence'a yani yukarıdaki gibi
+tek bir char listesine indirgedik. Listenin elemanlarını ise foreach ile yazdırdık.
+
+Query Syntax ile örneği genişletelim;
+
+Query Syntax ile SelectMany metodunu direkt olarak kullanamamaktayız. Onun yerine; 
+
+namespace LinqSample1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            List<string> strList = new List<string> { "Cagatay", "Demirtas" };
+
+            var methodResult = strList.SelectMany(x => x).ToList();
+            //bütün string'leri tek bir char listesine convert edecektir.
+
+            foreach ( var item in methodResult )
+            {
+                Console.WriteLine(item);
+            }
+
+            var queryResult = (from rec in strList //strList liste halinde string'ler barındırır. Yani bir koleksiyondur.
+                              from ch in rec //rec ise buradaki veri kaynağı olarak tek tek string değerleri tutar.
+                              select ch).ToList(); //aynı şekilde tüm string'ler artık tek bir char listesine convert edildi.
+
+            Console.Read();
+        }
+    }
+}
+
+Yeni örneğimiz için önce Employee.cs adlı bir class açalım;
+
+namespace _04_ProjectionOperators_SelectMany
+{
+    public class Employee
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string Email { get; set; }
+
+        public List<string> Programming { get; set; }
+    }
+}
+
+Örnek:
+
+using _04_ProjectionOperators_SelectMany;
+
+namespace LinqSample1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            var dataSource = new List<Employee>()
+            {
+                new Employee(){Id = 1, Name = "Kültigin", Email = "kul@gmail.com", Programming = new List<string>(){"Java", "PHP", "C++"} },
+                new Employee(){Id = 2, Name = "Gökbörü", Email = "gok@gmail.com", Programming = new List<string>(){"Typescript", "SQL", "Angular"} },
+                new Employee(){Id = 3, Name = "Mete", Email = "mete@gmail.com", Programming = new List<string>(){"EF Core", "C#", "Javascript"} }
+            };
+
+            var methodSyntax = dataSource.SelectMany(emp => emp.Programming).ToList();
+
+            Console.WriteLine();
+        }
+    }
+}
+
+Bu örnekte 3 sequence'imizin içindeki 3 sequence'ı SelectMany ile tek bir sequence haline getirdik.
+Eğer ki debug modunda dataSource'un içine bakarsak 9 elemanlı bir listede tüm programlama dillerini görebiliriz.
+
+Yani 3 string listesini tek bir string listesine dönüştürdük.
+
+yine de foreach ile ekrana yazdırırsak;
+
+foreach (var item in methodSyntax)
+{
+    Console.WriteLine("Programming languages: " + item);
+}
+
+Çıktı:
+Programming languages: Java
+Programming languages: PHP
+Programming languages: C++
+Programming languages: Typescript
+Programming languages: SQL
+Programming languages: Angular
+Programming languages: EF Core
+Programming languages: C#
+Programming languages: Javascript
+
+Query Syntax ile de yapalım.
+
+using _04_ProjectionOperators_SelectMany;
+
+namespace LinqSample1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            var dataSource = new List<Employee>()
+            {
+                new Employee(){Id = 1, Name = "Kültigin", Email = "kul@gmail.com", Programming = new List<string>(){"Java", "PHP", "C++"} },
+                new Employee(){Id = 2, Name = "Gökbörü", Email = "gok@gmail.com", Programming = new List<string>(){"Typescript", "SQL", "Angular"} },
+                new Employee(){Id = 3, Name = "Mete", Email = "mete@gmail.com", Programming = new List<string>(){"EF Core", "C#", "Javascript"} }
+            };
+
+            var querySyntax = (from emp in dataSource //emp, Employee türündeki 3 adet nesneyi tüm property'leri ile tutuyor.
+                              from skills in emp.Programming //buradan Programming property'sine ait olanları istediğimizi belirtiyoruz.
+                              select skills).ToList();
+
+            foreach (var item in querySyntax)
+            {
+                Console.WriteLine("Programming languages: " + item);
+            }
+
+            Console.WriteLine();
+        }
+    }
+}
+
+Aynı çıktıyı ederiz.
+
+Yeni örneğimiz için Techs.cs ekleyelim ve Employee.cs'de değişiklikler yapalım.
+
+//yeni örnek için Employee.cs;
+
+namespace _04_ProjectionOperators_SelectMany
+{
+    public class Employee
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string Email { get; set; }
+
+        public List<Techs> Programming { get; set; }
+    }
+}
+
+//Techs.cs class'ı;
+
+namespace _04_ProjectionOperators_SelectMany
+{
+    public class Techs
+    {
+        public string Technology { get; set; }
+    }
+}
+
+Örnek:
+
+using _04_ProjectionOperators_SelectMany;
+
+namespace LinqSample1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            //5 adet obje-nesne'ye sahip bir dataSource'umuz olsun.
+            var dataSource = new List<Employee>()
+            {
+                new Employee(){Id = 1, Name = "Hakan", Email = "hak@gmail.com", Programming =
+                new List<Techs>
+                {
+                    new Techs() { Technology = "C#"},
+                    new Techs() { Technology = "SQL"},
+                    new Techs() { Technology = "ASP.Net"},
+                }},
+                new Employee(){Id = 2, Name = "Serpil", Email = "ser@gmail.com", Programming =
+                new List<Techs>
+                {
+                    new Techs() { Technology = "C++"},
+                    new Techs() { Technology = "Bootstrap 5"},
+                    new Techs() { Technology = "ASP.Net"},
+                }},
+                new Employee(){Id = 3, Name = "Sertaç", Email = "tac@gmail.com", Programming =
+                new List<Techs>
+                {
+                    new Techs() { Technology = "C#"},
+                    new Techs() { Technology = "EF Core"},
+                    new Techs() { Technology = "Html 5"},
+                }},
+                //aşağıdaki ikisi de yeteneksiz.
+                new Employee(){Id = 4, Name = "Ali", Email = "ali@gmail.com", Programming = new List<Techs>()},
+                new Employee(){Id = 5, Name = "Gül", Email = "rose@gmail.com", Programming = new List<Techs>()},
+            };
+
+            //methodQuery'nin List<Techs> türünde olduğunu görürüz.
+            //çünkü burada Programming'in türü de List<Techs> 'dir.
+            var methodSyntax = dataSource.SelectMany(e => e.Programming).ToList();
+
+            var querySyntax = (from e in dataSource 
+                              from p in e.Programming
+                              select p).ToList();
+            //iki syntax ile de 9 kayıt göreceğiz.
+            //ve ikisinde de tek bir sequence'a indirilmiş sonucumuzu alacağız.
+
+            foreach (var item in methodSyntax)
+            {
+                Console.WriteLine("Programming languages: " + item.Technology);
+            }
+
+            Console.WriteLine("---");
+
+            foreach (var item in querySyntax)
+            {
+                Console.WriteLine("Programming languages: " + item.Technology);
+            }
+
+            Console.WriteLine();
+        }
+    }
+}
+
+Çıktı:
+Programming languages: C#
+Programming languages: SQL
+Programming languages: ASP.Net
+Programming languages: C++
+Programming languages: Bootstrap 5
+Programming languages: ASP.Net
+Programming languages: C#
+Programming languages: EF Core
+Programming languages: Html 5
+---
+Programming languages: C#
+Programming languages: SQL
+Programming languages: ASP.Net
+Programming languages: C++
+Programming languages: Bootstrap 5
+Programming languages: ASP.Net
+Programming languages: C#
+Programming languages: EF Core
+Programming languages: Html 5

@@ -1,0 +1,15 @@
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\LINQ_Workspace\15_ElementOperators\bin\Debug\net6.0\15_ElementOperators.exe
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\LINQ_Workspace\15_ElementOperators\bin\Debug\net6.0\15_ElementOperators.deps.json
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\LINQ_Workspace\15_ElementOperators\bin\Debug\net6.0\15_ElementOperators.runtimeconfig.json
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\LINQ_Workspace\15_ElementOperators\bin\Debug\net6.0\15_ElementOperators.dll
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\LINQ_Workspace\15_ElementOperators\bin\Debug\net6.0\15_ElementOperators.pdb
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\LINQ_Workspace\15_ElementOperators\obj\Debug\net6.0\15_ElementOperators.csproj.AssemblyReference.cache
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\LINQ_Workspace\15_ElementOperators\obj\Debug\net6.0\15_ElementOperators.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\LINQ_Workspace\15_ElementOperators\obj\Debug\net6.0\15_ElementOperators.AssemblyInfoInputs.cache
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\LINQ_Workspace\15_ElementOperators\obj\Debug\net6.0\15_ElementOperators.AssemblyInfo.cs
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\LINQ_Workspace\15_ElementOperators\obj\Debug\net6.0\15_ElementOperators.csproj.CoreCompileInputs.cache
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\LINQ_Workspace\15_ElementOperators\obj\Debug\net6.0\15_ElementOperators.dll
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\LINQ_Workspace\15_ElementOperators\obj\Debug\net6.0\refint\15_ElementOperators.dll
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\LINQ_Workspace\15_ElementOperators\obj\Debug\net6.0\15_ElementOperators.pdb
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\LINQ_Workspace\15_ElementOperators\obj\Debug\net6.0\15_ElementOperators.genruntimeconfig.cache
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\LINQ_Workspace\15_ElementOperators\obj\Debug\net6.0\ref\15_ElementOperators.dll

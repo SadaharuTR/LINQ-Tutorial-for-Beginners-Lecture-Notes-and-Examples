@@ -1,0 +1,348 @@
+LINQ Operatörleri
+
+- Operatörler LINQ ile sorgu yazmakta kullanılan metotlar serisidir.
+- Veri üzerinde uygulanabilecek pek çok özellik sunarlar.
+
+Örnek olarak;
+
+- Data filtering (filtreleme işlemleri)
+- Sorting (sıralama işlemleri)
+- Set operations, Protection operations, Grouping data, Converting data types, Aggregation, Join Operations....
+
+-------------------------------
+
+Projection Operators: 
+
+- Projection(yansıtma), bir veri kaynağından veriyi seçme ve verinin farklı bir formu olarak kullanma işlemidir.
+- Veriyi orjinal formunda kullanabildiğimiz gibi üzerinde bazı operasyonlar gerçekleştirdikten sonraki formlarında da kullanabiliriz.
+
+İki çeşit Projection metodu vardır.
+
+- Select
+- SelectMany
+
+Örnek:
+
+using _03_ProjectionOperators;
+
+namespace LinqSample1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            List<Employee> employees = new List<Employee>()
+            {
+                new Employee() { Id = 1, Name = "Çağhan", Email = "caghan@gmail.com"},
+                new Employee() { Id = 2, Name = "Akay", Email = "akay@gmail.com"},
+                new Employee() { Id = 3, Name = "Çağatay", Email = "cagatay@gmail.com"},
+                new Employee() { Id = 4, Name = "Bahar", Email = "bahar@gmail.com"},
+                new Employee() { Id = 5, Name = "Volkan", Email = "volkan@gmail.com"}
+            };
+            /*
+            //tüm datayı seçmek için;
+            var basicQuery = from emp in employees
+                             select emp;
+            */
+
+            //Query Syntax
+            var basicQuery = (from emp in employees
+                             select emp).ToList(); 
+            //ToList ile execute etmiş oluyoruz. ToList() ile koleksiyona çevirerek elde ederiz.
+
+            //basicQuery'nin içinde Employee türünde 5 adet objemiz olduğunu görürüz. Bu objeler select kısmında herhangi bir
+            ////manipülasyona uğramadığı için orjinal formundadır.
+            foreach (var item in basicQuery)
+            {
+                Console.WriteLine($"Id = {item.Id}, Name = {item.Name}");
+            }
+
+            Console.WriteLine("----------");
+
+            //Method Syntax
+
+            //Herhangi bir operasyon uygulamacağımız için Select metodunu kullanmamıza gerek yoktur. Direkt olarak
+            //ToList() kullanabiliriz.
+            var basicMethod = employees.ToList();
+
+            foreach (var item in basicMethod)
+            {
+                Console.WriteLine($"Id = {item.Id}, Name = {item.Name}");
+            }
+            //Sonuç tamamen aynı olacaktır.
+        }
+    }
+}
+
+Employee.cs ise aşağıdadır;
+
+namespace _03_ProjectionOperators
+{
+    public class Employee
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string Email { get; set; }
+    }
+}
+
+Çıktı:
+Id = 1, Name = Çaghan
+Id = 2, Name = Akay
+Id = 3, Name = Çagatay
+Id = 4, Name = Bahar
+Id = 5, Name = Volkan
+----------
+Id = 1, Name = Çaghan
+Id = 2, Name = Akay
+Id = 3, Name = Çagatay
+Id = 4, Name = Bahar
+Id = 5, Name = Volkan
+
+
+Örnek:
+
+using _03_ProjectionOperators;
+
+namespace LinqSample1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            List<Employee> employees = new List<Employee>()
+            {
+                new Employee() { Id = 1, Name = "Çağhan", Email = "caghan@gmail.com"},
+                new Employee() { Id = 2, Name = "Akay", Email = "akay@gmail.com"},
+                new Employee() { Id = 3, Name = "Çağatay", Email = "cagatay@gmail.com"},
+                new Employee() { Id = 4, Name = "Bahar", Email = "bahar@gmail.com"},
+                new Employee() { Id = 5, Name = "Volkan", Email = "volkan@gmail.com"}
+            };
+            
+            //Query Syntax
+            //Sadece Id kolonunu almak istersek;
+            var basicPropQuery = (from emp in employees
+                                  select emp.Id).ToList();
+
+            foreach (var item in basicPropQuery)
+            {
+                Console.WriteLine(item);
+            }
+
+            Console.WriteLine("------");
+
+            //Method Syntax
+
+            var basicPropMethod = employees.Select(emp => emp.Id).ToList();
+
+            foreach (var item in basicPropMethod) 
+            {
+                Console.WriteLine(item);
+            }
+        }
+    }
+}
+
+Id üzerinde Select yazdıktan sonra istediğimiz manipülasyonu yapabiliriz.
+
+//Mesela Id'lere bir ekleyerek sorgulayalım.
+//Query Syntax
+var basicPropQuery = (from emp in employees
+                     select emp.Id + 1).ToList();
+//Method Syntax
+var basicPropMethod = employees.Select(emp => emp.Id + 1).ToList();
+
+Ya da sorgu sonuçlarını String formatında isteyelim;
+
+//Query Syntax
+var basicPropQuery = (from emp in employees
+                     select emp.Id.ToString()).ToList();
+					 
+//Method Syntax
+var basicPropMethod = employees.Select(emp => emp.Id.ToString()).ToList();	
+
+Örnek:
+
+//hepsini seçmek zorunda değiliz. Employee() içindeki name hariç diğer sütunları da seçebiliriz.
+var selectQuery = (from emp in employees
+                      select new Employee()
+                      {
+                          Id = emp.Id,
+                          Email = emp.Email
+                      }).ToList();
+
+foreach (var item in selectQuery)
+{
+        Console.WriteLine($"Id: {item.Id}, Name: {item.Name} E-mail: {item.Email}");
+}				 
+
+Çıktı:
+
+Id: 1, Name:  E-mail: caghan@gmail.com
+Id: 2, Name:  E-mail: akay@gmail.com
+Id: 3, Name:  E-mail: cagatay@gmail.com
+Id: 4, Name:  E-mail: bahar@gmail.com
+Id: 5, Name:  E-mail: volkan@gmail.com
+
+Buradan sonraki örnekler için projemize Student.cs ekleyelim;
+
+namespace _03_ProjectionOperators
+{
+    public class Student
+    {
+        public int StudentId { get; set; }
+        public string StEmail { get; set; }
+        public string FullName { get; set; }
+
+    }
+}
+
+//employees içindeki verileri Student() sınıfından property'lere atayarak alalım. 
+//Artık selectQuery <Student> türünden bir List olacaktır.
+var selectQuery = (from emp in employees
+                   select new Student()
+                   {
+                       StudentId = emp.Id,
+                       FullName = emp.Name,
+                       StEmail= emp.Email
+                   }).ToList();
+
+foreach (var item in selectQuery)
+{
+    Console.WriteLine($"Id: {item.StudentId}, Name: {item.FullName} E-mail: {item.StEmail}");
+}
+
+Aynı örneği method syntax ile yapalım.
+Aynı şekilde emp'deki tüm property'leri emp'den Student class'ına assign ediyoruz.
+
+
+var selectMethod = employees.Select(emp => new Student()
+{
+    StudentId = emp.Id,
+    FullName = emp.Name,
+    StEmail = emp.Email
+}).ToList();
+
+foreach (var item in selectMethod)
+{
+    Console.WriteLine($"Id: {item.StudentId}, Name: {item.FullName} E-mail: {item.StEmail}");
+}
+
+Çıktı:
+Id: 1, Name: Çaghan E-mail: caghan@gmail.com
+Id: 2, Name: Akay E-mail: akay@gmail.com
+Id: 3, Name: Çagatay E-mail: cagatay@gmail.com
+Id: 4, Name: Bahar E-mail: bahar@gmail.com
+Id: 5, Name: Volkan E-mail: volkan@gmail.com
+
+------------------
+
+Anonymous Type ile Kullanım
+
+Elde etmek isteğimiz verileri illa ki bir class türünde elde etmek zorunda değiliz.
+
+Örnek:
+
+using _03_ProjectionOperators;
+
+namespace LinqSample1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            List<Employee> employees = new List<Employee>()
+            {
+                new Employee() { Id = 1, Name = "Çağhan", Email = "caghan@gmail.com"},
+                new Employee() { Id = 2, Name = "Akay", Email = "akay@gmail.com"},
+                new Employee() { Id = 3, Name = "Çağatay", Email = "cagatay@gmail.com"},
+                new Employee() { Id = 4, Name = "Bahar", Email = "bahar@gmail.com"},
+                new Employee() { Id = 5, Name = "Volkan", Email = "volkan@gmail.com"}
+            };
+
+            //Anonim olarak oluşturmak için;
+            var selectAnonimQuery = (from emp in employees
+                               select new
+                               {
+                                   //artık kendi isimlendirdiğimiz property'leri kullanabiliriz.
+                                   CustomId = emp.Id,
+                                   AnonimName = emp.Name,
+                                   CustomAnonimName = emp.Email
+                               }).ToList();
+            //selectAnonimQuery'e baktığımızda türünün List<a'> yani anonim olduğunu görürüz.
+            foreach (var item in selectAnonimQuery)
+            {
+                Console.WriteLine($"Id: {item.CustomId}, Name: {item.AnonimName} E-mail: {item.CustomAnonimName}");
+            }
+
+            Console.WriteLine("---------------------------");
+
+            //Aynı kodu method syntax ile yazalım.
+            var selectAnonimMethod = employees.Select(emp => new
+            {
+                CustomId = emp.Id,
+                AnonimName = emp.Name,
+                CustomAnonimName = emp.Email
+            });
+
+            foreach (var item in selectAnonimMethod)
+            {
+                Console.WriteLine($"Id: {item.CustomId}, Name: {item.AnonimName} E-mail: {item.CustomAnonimName}");
+            }
+        }
+    }
+}
+
+Çıktı:
+Id: 1, Name: Çaghan E-mail: caghan@gmail.com
+Id: 2, Name: Akay E-mail: akay@gmail.com
+Id: 3, Name: Çagatay E-mail: cagatay@gmail.com
+Id: 4, Name: Bahar E-mail: bahar@gmail.com
+Id: 5, Name: Volkan E-mail: volkan@gmail.com
+---------------------------
+Id: 1, Name: Çaghan E-mail: caghan@gmail.com
+Id: 2, Name: Akay E-mail: akay@gmail.com
+Id: 3, Name: Çagatay E-mail: cagatay@gmail.com
+Id: 4, Name: Bahar E-mail: bahar@gmail.com
+Id: 5, Name: Volkan E-mail: volkan@gmail.com
+
+------------------
+
+Index Yardımıyla Veri Sorgulama
+
+using _03_ProjectionOperators;
+
+Select((emp, index)'deki ikinci parametre bize ilgili verinin index'ini verecektir.
+Parametre adı istediğimiz gibi olabilir. 
+
+namespace LinqSample1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            List<Employee> employees = new List<Employee>()
+            {
+                new Employee() { Id = 1, Name = "Çağhan", Email = "caghan@gmail.com"},
+                new Employee() { Id = 2, Name = "Akay", Email = "akay@gmail.com"},
+                new Employee() { Id = 3, Name = "Çağatay", Email = "cagatay@gmail.com"},
+                new Employee() { Id = 4, Name = "Bahar", Email = "bahar@gmail.com"},
+                new Employee() { Id = 5, Name = "Volkan", Email = "volkan@gmail.com"}
+            };
+
+            var query = employees.Select((emp, index) => new { Index = index, FullName = emp.Name}).ToList();
+
+            foreach (var item in query)
+            {
+                Console.WriteLine($"Index: {item.Index}, Name: {item.FullName}");
+            }
+        }
+    }
+}
+
+Çıktı:
+Index: 0, Name: Çaghan
+Index: 1, Name: Akay
+Index: 2, Name: Çagatay
+Index: 3, Name: Bahar
+Index: 4, Name: Volkan

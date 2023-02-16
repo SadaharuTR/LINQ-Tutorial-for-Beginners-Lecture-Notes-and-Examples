@@ -1,0 +1,15 @@
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\LINQ_Workspace\08_SortingOperators_ThenByAndDesc\bin\Debug\net6.0\08_SortingOperators_ThenByAndDesc.exe
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\LINQ_Workspace\08_SortingOperators_ThenByAndDesc\bin\Debug\net6.0\08_SortingOperators_ThenByAndDesc.deps.json
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\LINQ_Workspace\08_SortingOperators_ThenByAndDesc\bin\Debug\net6.0\08_SortingOperators_ThenByAndDesc.runtimeconfig.json
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\LINQ_Workspace\08_SortingOperators_ThenByAndDesc\bin\Debug\net6.0\08_SortingOperators_ThenByAndDesc.dll
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\LINQ_Workspace\08_SortingOperators_ThenByAndDesc\bin\Debug\net6.0\08_SortingOperators_ThenByAndDesc.pdb
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\LINQ_Workspace\08_SortingOperators_ThenByAndDesc\obj\Debug\net6.0\08_SortingOperators_ThenByAndDesc.csproj.AssemblyReference.cache
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\LINQ_Workspace\08_SortingOperators_ThenByAndDesc\obj\Debug\net6.0\08_SortingOperators_ThenByAndDesc.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\LINQ_Workspace\08_SortingOperators_ThenByAndDesc\obj\Debug\net6.0\08_SortingOperators_ThenByAndDesc.AssemblyInfoInputs.cache
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\LINQ_Workspace\08_SortingOperators_ThenByAndDesc\obj\Debug\net6.0\08_SortingOperators_ThenByAndDesc.AssemblyInfo.cs
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\LINQ_Workspace\08_SortingOperators_ThenByAndDesc\obj\Debug\net6.0\08_SortingOperators_ThenByAndDesc.csproj.CoreCompileInputs.cache
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\LINQ_Workspace\08_SortingOperators_ThenByAndDesc\obj\Debug\net6.0\08_SortingOperators_ThenByAndDesc.dll
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\LINQ_Workspace\08_SortingOperators_ThenByAndDesc\obj\Debug\net6.0\refint\08_SortingOperators_ThenByAndDesc.dll
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\LINQ_Workspace\08_SortingOperators_ThenByAndDesc\obj\Debug\net6.0\08_SortingOperators_ThenByAndDesc.pdb
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\LINQ_Workspace\08_SortingOperators_ThenByAndDesc\obj\Debug\net6.0\08_SortingOperators_ThenByAndDesc.genruntimeconfig.cache
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\LINQ_Workspace\08_SortingOperators_ThenByAndDesc\obj\Debug\net6.0\ref\08_SortingOperators_ThenByAndDesc.dll

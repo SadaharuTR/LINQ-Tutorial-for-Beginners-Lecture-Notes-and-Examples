@@ -1,0 +1,15 @@
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\LINQ_Workspace\12_PartitioningDataOperators\bin\Debug\net6.0\12_PartitioningDataOperators.exe
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\LINQ_Workspace\12_PartitioningDataOperators\bin\Debug\net6.0\12_PartitioningDataOperators.deps.json
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\LINQ_Workspace\12_PartitioningDataOperators\bin\Debug\net6.0\12_PartitioningDataOperators.runtimeconfig.json
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\LINQ_Workspace\12_PartitioningDataOperators\bin\Debug\net6.0\12_PartitioningDataOperators.dll
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\LINQ_Workspace\12_PartitioningDataOperators\bin\Debug\net6.0\12_PartitioningDataOperators.pdb
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\LINQ_Workspace\12_PartitioningDataOperators\obj\Debug\net6.0\12_PartitioningDataOperators.csproj.AssemblyReference.cache
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\LINQ_Workspace\12_PartitioningDataOperators\obj\Debug\net6.0\12_PartitioningDataOperators.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\LINQ_Workspace\12_PartitioningDataOperators\obj\Debug\net6.0\12_PartitioningDataOperators.AssemblyInfoInputs.cache
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\LINQ_Workspace\12_PartitioningDataOperators\obj\Debug\net6.0\12_PartitioningDataOperators.AssemblyInfo.cs
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\LINQ_Workspace\12_PartitioningDataOperators\obj\Debug\net6.0\12_PartitioningDataOperators.csproj.CoreCompileInputs.cache
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\LINQ_Workspace\12_PartitioningDataOperators\obj\Debug\net6.0\12_PartitioningDataOperators.dll
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\LINQ_Workspace\12_PartitioningDataOperators\obj\Debug\net6.0\refint\12_PartitioningDataOperators.dll
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\LINQ_Workspace\12_PartitioningDataOperators\obj\Debug\net6.0\12_PartitioningDataOperators.pdb
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\LINQ_Workspace\12_PartitioningDataOperators\obj\Debug\net6.0\12_PartitioningDataOperators.genruntimeconfig.cache
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\LINQ_Workspace\12_PartitioningDataOperators\obj\Debug\net6.0\ref\12_PartitioningDataOperators.dll

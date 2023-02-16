@@ -1,0 +1,15 @@
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\LINQ_Workspace\07_SortingOperators_OrderByDescending\bin\Debug\net6.0\07_SortingOperators_OrderByDescending.exe
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\LINQ_Workspace\07_SortingOperators_OrderByDescending\bin\Debug\net6.0\07_SortingOperators_OrderByDescending.deps.json
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\LINQ_Workspace\07_SortingOperators_OrderByDescending\bin\Debug\net6.0\07_SortingOperators_OrderByDescending.runtimeconfig.json
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\LINQ_Workspace\07_SortingOperators_OrderByDescending\bin\Debug\net6.0\07_SortingOperators_OrderByDescending.dll
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\LINQ_Workspace\07_SortingOperators_OrderByDescending\bin\Debug\net6.0\07_SortingOperators_OrderByDescending.pdb
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\LINQ_Workspace\07_SortingOperators_OrderByDescending\obj\Debug\net6.0\07_SortingOperators_OrderByDescending.csproj.AssemblyReference.cache
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\LINQ_Workspace\07_SortingOperators_OrderByDescending\obj\Debug\net6.0\07_SortingOperators_OrderByDescending.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\LINQ_Workspace\07_SortingOperators_OrderByDescending\obj\Debug\net6.0\07_SortingOperators_OrderByDescending.AssemblyInfoInputs.cache
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\LINQ_Workspace\07_SortingOperators_OrderByDescending\obj\Debug\net6.0\07_SortingOperators_OrderByDescending.AssemblyInfo.cs
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\LINQ_Workspace\07_SortingOperators_OrderByDescending\obj\Debug\net6.0\07_SortingOperators_OrderByDescending.csproj.CoreCompileInputs.cache
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\LINQ_Workspace\07_SortingOperators_OrderByDescending\obj\Debug\net6.0\07_SortingOperators_OrderByDescending.dll
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\LINQ_Workspace\07_SortingOperators_OrderByDescending\obj\Debug\net6.0\refint\07_SortingOperators_OrderByDescending.dll
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\LINQ_Workspace\07_SortingOperators_OrderByDescending\obj\Debug\net6.0\07_SortingOperators_OrderByDescending.pdb
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\LINQ_Workspace\07_SortingOperators_OrderByDescending\obj\Debug\net6.0\07_SortingOperators_OrderByDescending.genruntimeconfig.cache
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\LINQ_Workspace\07_SortingOperators_OrderByDescending\obj\Debug\net6.0\ref\07_SortingOperators_OrderByDescending.dll

@@ -1,0 +1,15 @@
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\LINQ_Workspace\05_FilteringOperators\bin\Debug\net6.0\05_FilteringOperators.exe
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\LINQ_Workspace\05_FilteringOperators\bin\Debug\net6.0\05_FilteringOperators.deps.json
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\LINQ_Workspace\05_FilteringOperators\bin\Debug\net6.0\05_FilteringOperators.runtimeconfig.json
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\LINQ_Workspace\05_FilteringOperators\bin\Debug\net6.0\05_FilteringOperators.dll
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\LINQ_Workspace\05_FilteringOperators\bin\Debug\net6.0\05_FilteringOperators.pdb
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\LINQ_Workspace\05_FilteringOperators\obj\Debug\net6.0\05_FilteringOperators.csproj.AssemblyReference.cache
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\LINQ_Workspace\05_FilteringOperators\obj\Debug\net6.0\05_FilteringOperators.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\LINQ_Workspace\05_FilteringOperators\obj\Debug\net6.0\05_FilteringOperators.AssemblyInfoInputs.cache
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\LINQ_Workspace\05_FilteringOperators\obj\Debug\net6.0\05_FilteringOperators.AssemblyInfo.cs
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\LINQ_Workspace\05_FilteringOperators\obj\Debug\net6.0\05_FilteringOperators.csproj.CoreCompileInputs.cache
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\LINQ_Workspace\05_FilteringOperators\obj\Debug\net6.0\05_FilteringOperators.dll
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\LINQ_Workspace\05_FilteringOperators\obj\Debug\net6.0\refint\05_FilteringOperators.dll
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\LINQ_Workspace\05_FilteringOperators\obj\Debug\net6.0\05_FilteringOperators.pdb
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\LINQ_Workspace\05_FilteringOperators\obj\Debug\net6.0\05_FilteringOperators.genruntimeconfig.cache
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\LINQ_Workspace\05_FilteringOperators\obj\Debug\net6.0\ref\05_FilteringOperators.dll

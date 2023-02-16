@@ -1,0 +1,15 @@
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\LINQ_Workspace\10_QuantifierOperators\bin\Debug\net6.0\10_QuantifierOperators.exe
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\LINQ_Workspace\10_QuantifierOperators\bin\Debug\net6.0\10_QuantifierOperators.deps.json
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\LINQ_Workspace\10_QuantifierOperators\bin\Debug\net6.0\10_QuantifierOperators.runtimeconfig.json
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\LINQ_Workspace\10_QuantifierOperators\bin\Debug\net6.0\10_QuantifierOperators.dll
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\LINQ_Workspace\10_QuantifierOperators\bin\Debug\net6.0\10_QuantifierOperators.pdb
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\LINQ_Workspace\10_QuantifierOperators\obj\Debug\net6.0\10_QuantifierOperators.csproj.AssemblyReference.cache
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\LINQ_Workspace\10_QuantifierOperators\obj\Debug\net6.0\10_QuantifierOperators.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\LINQ_Workspace\10_QuantifierOperators\obj\Debug\net6.0\10_QuantifierOperators.AssemblyInfoInputs.cache
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\LINQ_Workspace\10_QuantifierOperators\obj\Debug\net6.0\10_QuantifierOperators.AssemblyInfo.cs
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\LINQ_Workspace\10_QuantifierOperators\obj\Debug\net6.0\10_QuantifierOperators.csproj.CoreCompileInputs.cache
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\LINQ_Workspace\10_QuantifierOperators\obj\Debug\net6.0\10_QuantifierOperators.dll
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\LINQ_Workspace\10_QuantifierOperators\obj\Debug\net6.0\refint\10_QuantifierOperators.dll
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\LINQ_Workspace\10_QuantifierOperators\obj\Debug\net6.0\10_QuantifierOperators.pdb
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\LINQ_Workspace\10_QuantifierOperators\obj\Debug\net6.0\10_QuantifierOperators.genruntimeconfig.cache
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\LINQ_Workspace\10_QuantifierOperators\obj\Debug\net6.0\ref\10_QuantifierOperators.dll

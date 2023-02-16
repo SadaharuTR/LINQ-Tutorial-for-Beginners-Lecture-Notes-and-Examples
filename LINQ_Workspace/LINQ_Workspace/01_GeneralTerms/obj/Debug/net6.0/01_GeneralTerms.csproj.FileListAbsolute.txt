@@ -1,0 +1,15 @@
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\01_GeneralTerms\01_GeneralTerms\bin\Debug\net6.0\01_GeneralTerms.exe
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\01_GeneralTerms\01_GeneralTerms\bin\Debug\net6.0\01_GeneralTerms.deps.json
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\01_GeneralTerms\01_GeneralTerms\bin\Debug\net6.0\01_GeneralTerms.runtimeconfig.json
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\01_GeneralTerms\01_GeneralTerms\bin\Debug\net6.0\01_GeneralTerms.dll
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\01_GeneralTerms\01_GeneralTerms\bin\Debug\net6.0\01_GeneralTerms.pdb
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\01_GeneralTerms\01_GeneralTerms\obj\Debug\net6.0\01_GeneralTerms.csproj.AssemblyReference.cache
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\01_GeneralTerms\01_GeneralTerms\obj\Debug\net6.0\01_GeneralTerms.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\01_GeneralTerms\01_GeneralTerms\obj\Debug\net6.0\01_GeneralTerms.AssemblyInfoInputs.cache
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\01_GeneralTerms\01_GeneralTerms\obj\Debug\net6.0\01_GeneralTerms.AssemblyInfo.cs
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\01_GeneralTerms\01_GeneralTerms\obj\Debug\net6.0\01_GeneralTerms.csproj.CoreCompileInputs.cache
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\01_GeneralTerms\01_GeneralTerms\obj\Debug\net6.0\01_GeneralTerms.dll
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\01_GeneralTerms\01_GeneralTerms\obj\Debug\net6.0\refint\01_GeneralTerms.dll
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\01_GeneralTerms\01_GeneralTerms\obj\Debug\net6.0\01_GeneralTerms.pdb
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\01_GeneralTerms\01_GeneralTerms\obj\Debug\net6.0\01_GeneralTerms.genruntimeconfig.cache
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\01_GeneralTerms\01_GeneralTerms\obj\Debug\net6.0\ref\01_GeneralTerms.dll

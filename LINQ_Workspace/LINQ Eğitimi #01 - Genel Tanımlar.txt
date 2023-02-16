@@ -1,0 +1,142 @@
+LINQ Nedir?
+
+- Language Integrated Query. Language Integrated bir dil değil ama bir dilin parçası anlamına gelmektedir.
+- Microsoft tarafından geliştirilmiştir ve System.Linq namespace'inde bulunmaktadır.
+- Farklı veri kaynaklarına uygulanabilir bir tek tip syntax(sözdizilimi)'dir.
+- Veri manipülasyonunda kompakt, açıklayıcı ve anlaşılır bir yaklaşım sunar.
+- İlk olarak .Net Framework ve C# 3.0 ile sunulmuştur.
+
+Not: DataSource (veri kaynağı), bir sunucudan bir veritabanına kurulan bağlantıya verilen isimdir.
+
+- Ado.Net Dataset, SQL Database, EF Core, In memory...'de tek sorgu bütün veri kaynakları ile uyumlu kullanılabilir. Birinden diğerine değiştirmek gerekmez.
+
+Neden LINQ?
+
+- Farklı veri kaynakları için sürekli yeni bir sorgu dili öğrenmemize gerekliliği kaldırır.
+- Daha az kod yazımı sağlar.
+- Hataları compile time'da vereceğinden güvenlik sağlar.
+- IntelliSense desteği vardır. .'ya basarak tüm otomatik tamamlama seçeneklerine ulaşabiliriz.
+- İçerisinde pek çok built-in fonksiyon vardır. Bunlar farklı operasyonları gerçeklemeye yardımcı olur.
+
+----------------------
+
+LINQ Nasıl Çalışır?
+
+.NET Dili -> Linq --> Linq Providers -> Data Source
+
+					 Linq to Objects    In Memory Objects
+					 Linq to Entities   Entity Framework
+					 Linq to Dataset	Ado.Net DataSet
+					 Linq to SQL		SQL Database
+
+Linq Provider'lar yazılım dili ile oluşturduğumuz sorguları kullanılan veritabanına göre uyumlu hale getirir.
+
+Sorgumuz tektir, o sorguyu Linq Provider'lar ile o veritabanı-kaynağına uygun hale çeviririz.
+
+Linq Provider yani Linq Sağlayıcı, IQueryProvider ve IQueryable arayüzlerini ilgili data store'a (veri depolanan yer)
+göre uygulatan bir yazılımdır. Bir diğer deyişle, ilgili data store'a göre LINQ sorguları yazmamızı sağlar. Linq provider olmadan Linq sorgumuzu execute edemeyiz.
+
+Bir Linq sorgusu yazmak için gerekenler;
+1- Veri Kaynağı
+2- Sorgu
+3- Execute (kodu yürütme-çalıştırma)
+
+Peki bu Query nedir?
+
+- Query yani sorgu, veriye uygulanacak CRUD işlemleri aksiyonları ve bu sorguda alınacak çıktının yani output'un nasıl şekilleceğini söyleyen gerekli direktifler dizisidir.
+
+CRUD: Programlamada oluşturma, okuma, güncelleme ve silme (İngilizce: Create, Read, Update, Delete (CRUD)), veri depolamada kullanılan dört temel fonksiyondur.
+
+Her bir query 3 temelden oluşur;
+1- Initialization (başlatma-başlangıca hazır hale getirme)
+2- Condition (şart)
+3- Selection (seçme)
+
+LINQ sorgularında bir sorgu yazmak için 3 farklı yol vardır.
+
+1- Query Syntax
+2- Method Syntax
+3- Mixed Syntax(Query + Method)
+
+
+Query Syntax: Karışık sorgular yazmanın okuması kolay bir yoludur.
+Bir SQL sorgusu örneği:
+
+	from object in dataSource
+	where condition
+	select object 
+	
+Method Syntax: Karışık sorgular yazmanın günümüzde daha popüler bir yoludur.
+
+- Lambda ifadeleri kullanır. (bkz. lambda expressions.) 
+- Basit sorgular yazmanın ve okumanın faydalı bir yoludur da diyebiliriz. Karmaşık sorgularda işler biraz karışabilir.
+- Bu tip sorgu yazımında genel yaklaşım birden fazla metot(fonksiyon)'u . ile kombine etmekten geçer.
+
+Örnek olarak: DataSource.ConditionMethod().SelectionMethod()
+
+Mixed Syntax ise yukarıdaki iki sorgunun birleşik kullanımıdır.
+
+Örnek olarak;
+
+(from object in dataSource where condition select object).Method()
+
+Genel bir örnek verecek olursak;
+
+namespace LinqSample1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            //Query Syntax
+            //buradaki data source'umuz list
+            List<int> list = new List<int>() { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+
+            var querySyntax = from obj in list
+                              where obj > 2
+                              select obj;
+            //query kısmı bitti,
+            //şimdi sırada bu query'i execute etme sırası.
+            foreach (var item in querySyntax)
+            {
+                Console.WriteLine(item);
+            }
+
+            Console.WriteLine("----------------"); //sonuçları ayıralım.
+
+            //Method Syntax
+            var methodSyntax = list.Where(obj => obj > 2);
+            foreach (var item in methodSyntax)
+            {
+                Console.WriteLine(item);
+            }
+            Console.WriteLine("----------------");
+			
+            //Mixed Syntax
+            var mixedSyntax = (from obj in list select obj).Max();
+            Console.WriteLine("Mixed Syntax Max Value Result: " + mixedSyntax);
+
+        }
+    }
+}
+
+Çıktı:
+3
+4
+5
+6
+7
+8
+9
+10
+----------------
+3
+4
+5
+6
+7
+8
+9
+10
+----------------
+Mixed Syntax Max Value Result: 10

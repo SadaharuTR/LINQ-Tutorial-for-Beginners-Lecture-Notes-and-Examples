@@ -1,0 +1,15 @@
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\LINQ_Workspace\06_SortingOperators\obj\Debug\net6.0\06_SortingOperators.csproj.AssemblyReference.cache
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\LINQ_Workspace\06_SortingOperators\obj\Debug\net6.0\06_SortingOperators.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\LINQ_Workspace\06_SortingOperators\obj\Debug\net6.0\06_SortingOperators.AssemblyInfoInputs.cache
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\LINQ_Workspace\06_SortingOperators\obj\Debug\net6.0\06_SortingOperators.AssemblyInfo.cs
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\LINQ_Workspace\06_SortingOperators\obj\Debug\net6.0\06_SortingOperators.csproj.CoreCompileInputs.cache
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\LINQ_Workspace\06_SortingOperators\bin\Debug\net6.0\06_SortingOperators.exe
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\LINQ_Workspace\06_SortingOperators\bin\Debug\net6.0\06_SortingOperators.deps.json
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\LINQ_Workspace\06_SortingOperators\bin\Debug\net6.0\06_SortingOperators.runtimeconfig.json
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\LINQ_Workspace\06_SortingOperators\bin\Debug\net6.0\06_SortingOperators.dll
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\LINQ_Workspace\06_SortingOperators\bin\Debug\net6.0\06_SortingOperators.pdb
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\LINQ_Workspace\06_SortingOperators\obj\Debug\net6.0\06_SortingOperators.dll
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\LINQ_Workspace\06_SortingOperators\obj\Debug\net6.0\refint\06_SortingOperators.dll
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\LINQ_Workspace\06_SortingOperators\obj\Debug\net6.0\06_SortingOperators.pdb
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\LINQ_Workspace\06_SortingOperators\obj\Debug\net6.0\06_SortingOperators.genruntimeconfig.cache
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\LINQ_Workspace\06_SortingOperators\obj\Debug\net6.0\ref\06_SortingOperators.dll

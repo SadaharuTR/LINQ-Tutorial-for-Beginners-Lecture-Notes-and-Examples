@@ -1,0 +1,15 @@
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\LINQ_Workspace\11_SetOperators\bin\Debug\net6.0\11_SetOperators.exe
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\LINQ_Workspace\11_SetOperators\bin\Debug\net6.0\11_SetOperators.deps.json
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\LINQ_Workspace\11_SetOperators\bin\Debug\net6.0\11_SetOperators.runtimeconfig.json
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\LINQ_Workspace\11_SetOperators\bin\Debug\net6.0\11_SetOperators.dll
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\LINQ_Workspace\11_SetOperators\bin\Debug\net6.0\11_SetOperators.pdb
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\LINQ_Workspace\11_SetOperators\obj\Debug\net6.0\11_SetOperators.csproj.AssemblyReference.cache
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\LINQ_Workspace\11_SetOperators\obj\Debug\net6.0\11_SetOperators.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\LINQ_Workspace\11_SetOperators\obj\Debug\net6.0\11_SetOperators.AssemblyInfoInputs.cache
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\LINQ_Workspace\11_SetOperators\obj\Debug\net6.0\11_SetOperators.AssemblyInfo.cs
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\LINQ_Workspace\11_SetOperators\obj\Debug\net6.0\11_SetOperators.csproj.CoreCompileInputs.cache
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\LINQ_Workspace\11_SetOperators\obj\Debug\net6.0\11_SetOperators.dll
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\LINQ_Workspace\11_SetOperators\obj\Debug\net6.0\refint\11_SetOperators.dll
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\LINQ_Workspace\11_SetOperators\obj\Debug\net6.0\11_SetOperators.pdb
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\LINQ_Workspace\11_SetOperators\obj\Debug\net6.0\11_SetOperators.genruntimeconfig.cache
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\LINQ_Workspace\11_SetOperators\obj\Debug\net6.0\ref\11_SetOperators.dll

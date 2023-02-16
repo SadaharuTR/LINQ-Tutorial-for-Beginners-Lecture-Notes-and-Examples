@@ -1,0 +1,15 @@
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\01_GeneralTerms\03_ProjectionOperators\bin\Debug\net6.0\03_ProjectionOperators.exe
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\01_GeneralTerms\03_ProjectionOperators\bin\Debug\net6.0\03_ProjectionOperators.deps.json
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\01_GeneralTerms\03_ProjectionOperators\bin\Debug\net6.0\03_ProjectionOperators.runtimeconfig.json
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\01_GeneralTerms\03_ProjectionOperators\bin\Debug\net6.0\03_ProjectionOperators.dll
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\01_GeneralTerms\03_ProjectionOperators\bin\Debug\net6.0\03_ProjectionOperators.pdb
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\01_GeneralTerms\03_ProjectionOperators\obj\Debug\net6.0\03_ProjectionOperators.csproj.AssemblyReference.cache
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\01_GeneralTerms\03_ProjectionOperators\obj\Debug\net6.0\03_ProjectionOperators.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\01_GeneralTerms\03_ProjectionOperators\obj\Debug\net6.0\03_ProjectionOperators.AssemblyInfoInputs.cache
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\01_GeneralTerms\03_ProjectionOperators\obj\Debug\net6.0\03_ProjectionOperators.AssemblyInfo.cs
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\01_GeneralTerms\03_ProjectionOperators\obj\Debug\net6.0\03_ProjectionOperators.csproj.CoreCompileInputs.cache
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\01_GeneralTerms\03_ProjectionOperators\obj\Debug\net6.0\03_ProjectionOperators.dll
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\01_GeneralTerms\03_ProjectionOperators\obj\Debug\net6.0\refint\03_ProjectionOperators.dll
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\01_GeneralTerms\03_ProjectionOperators\obj\Debug\net6.0\03_ProjectionOperators.pdb
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\01_GeneralTerms\03_ProjectionOperators\obj\Debug\net6.0\03_ProjectionOperators.genruntimeconfig.cache
+C:\Users\acdem\OneDrive\Masaüstü\LINQ_Workspace\01_GeneralTerms\03_ProjectionOperators\obj\Debug\net6.0\ref\03_ProjectionOperators.dll
